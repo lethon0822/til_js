@@ -1,12 +1,9 @@
-console.log(this);
-let brand = "NAVER";
-function say() {
-  console.log(this); // Window{...
-  this.brand = "KKO";
+const say = funtion() {};
+const cry = () => {};
 
-  function hi() {
-    console.log(this); // Window{...
-  }
-  hi();
+function run(a) {
+  a();
 }
-say();
+
+run(say);
+run(cry);

@@ -2193,3 +2193,366 @@ function Coffee() {
 Coffee();
 new Coffee(); // new 사용 => 객체를 생성하여 Coffee {} 를 가리킴(로컬 스코프)
 ```
+
+### 10.6. 이해한 것 정리
+
+- function에 작성한 this는 `어디서 함수를 사용했는가`에 따라 다름
+
+```js
+function say(){
+  this ? // <== window
+}
+say(); // <== global 영역. window에서 사용했으므로
+```
+
+```js
+const Person = { // 객체 안에서
+  say: function(){
+    this ? // Person 영역.
+  }
+}
+
+Person.say(); // Person이 say를 사용했으므로
+```
+
+- 예제)
+
+```js
+const Person = {
+  name: 아이유,
+  say: function () {
+    console.log(this.name);
+    // 객체 안에 있는 name
+  },
+};
+
+Person.say();
+```
+
+### 10.7. 화살표 함수의 this
+
+- 화살표 함수는 `상위 스코프`를 가리킴
+
+```js
+// 여기는 window
+const say = () => {
+  console.log(this); // 현재의 상위 범위를 가리킴.
+  // window 출력됨
+};
+say();
+```
+
+```js
+const Person = {
+  name: "아이유",
+  say: function () {
+    console.log(this); // 객체가 호출
+    console.log(this.name); // 객체.name 찾는다
+
+    setTimeout(function () {
+      console.log(this); // window 가 호출
+      console.log(this.name); // window.name 찾는다
+    }, 3000);
+  },
+  sayArrow: function () {
+    console.log(this); // 객체가 호출
+    console.log(this.name); // 객체.name 찾는다.
+    setTimeout(() => {
+      console.log(this); // 화살표는 나보다 위에 영역
+      console.log(this.name); // 위에 영역.name
+    }, 3000);
+  },
+};
+Person.sayArrow();
+```
+
+## 11. 생성자 함수
+
+- `객체를 생성`하는 것이 목적
+- new 키워드를 붙여서 함수 호출
+
+```js
+function Person(_name) {
+  this.name = _name;
+  console.log(this);
+  console.log(this.name);
+}
+
+Person.prototype.say = function () {
+  console.log(this.name + " 안녕하세요.");
+};
+
+const a = new Person("둘리");
+a.say();
+const b = new Person("또치");
+b.say();
+const c = new Person("마이콜");
+c.say();
+const d = new Person("고길동");
+d.say();
+```
+
+- `prototype`을 이용하면 공통 기능을 자동으로 부여함
+- 원활하게 메모리 관리 가능
+
+```js
+function Person(_name) {
+  this.name = _name;
+  console.log(this);
+  console.log(this.name);
+}
+
+Person.prototype.say = function () {
+  console.log(this.name + " 안녕하세요.");
+};
+
+const a = new Person("둘리");
+a.say();
+const b = new Person("또치");
+b.say();
+const c = new Person("마이콜");
+c.say();
+const d = new Person("고길동");
+d.say();
+```
+
+## 12. 클래스
+
+- `객체를 생성`하는 것이 목적
+
+### 12.1. 생성자 메소드 (constructor)
+
+````js
+class Person {
+  // 클래스에서 메스도 함수 만드는 법
+  메소드명() {}
+
+  // 객체를 생성하는 함수 : 변경 불가한 부분
+  // 디폴트 객체 생성자 함수(직접 안 만들면 스스로 만듦)
+  constructor(_name) {
+    console.log("new를 사용하면 자동 실행");
+    console.log(_name);
+    this.name = _name; // Person을 가리킴
+  }
+}
+
+new Person("둘리"); // constructor()로 자동 실행
+```js
+````
+
+### 12.2. 나의 메소드 만들기
+
+- `메소드명() {할일}`
+
+### 12.3. 나의 속성 만들기
+
+- Property : 프로퍼티
+
+```
+class Person {
+  constructor(_name, _age) {
+    this.name = _name;
+    this.age = _age;
+  }
+  // say 라는 메소드
+  say() {
+    console.log(this.name);
+  }
+}
+
+const a = new Person("둘리", 500000);
+a.say();
+console.log(a);
+```
+
+### 12.4. 상속
+
+````js
+[정화섭] [오전 11:51]
+### 12.3. 나의 속성 만들기
+
+- Property : 프로퍼티
+- constructor 메소드에서만들기
+
+```js
+ constructor(_name, _age) {
+    this.name = _name;
+    this.age = _age;
+  }
+````
+
+- 단계 1
+
+```js
+// 동물
+class Animal {
+  constructor() {
+    this.eye = 2;
+    this.nose = 1;
+  }
+}
+// 강아지
+class Dog {
+  constructor() {
+    this.eye = 2;
+    this.nose = 1;
+  }
+}
+// 새
+class Bird {
+  constructor() {
+    this.eye = 2;
+    this.nose = 1;
+  }
+}
+```
+
+- 단계 2.
+
+```js
+// 동물
+class Animal {
+  constructor(eye, nose) {
+    this.eye = eye;
+    this.nose = nose;
+  }
+  speak() {
+    console.log("소리를 내요");
+  }
+}
+const a = new Animal(2, 1);
+a.speak();
+
+console.log(a);
+// 강아지
+class Dog extends Animal {
+  constructor() {
+    super(2, 5); // new Animal();
+    this.name = "강아지";
+  }
+  speak() {
+    console.log("멍멍이라고 소리를 내요");
+  }
+}
+
+const b = new Dog();
+b.speak();
+console.log(b);
+
+// 새
+class Bird extends Animal {
+  constructor() {
+    super(2, 1);
+    this.name = "이쁜새";
+    this.city = "대구";
+  }
+  speak() {
+    console.log("짹짹이라고 소리를 내요");
+  }
+}
+const c = new Bird();
+c.speak();
+console.log(c);
+```
+
+- const a = {} // 객체 리터럴
+- new fun() // 객체 생성 메소드
+- new class // 객체 생성 클래스
+
+### 12.5. 접근 제한자
+
+- Property와 메소드를 활용하는 경우 제한 걸기
+
+#### 12.5.1. 종류
+
+- 만약 java일 경우
+
+```java
+public  // 마음대로 접근 가능 (공개적)
+private // 클래스 내부에서만 접근 가능 (비공개적)
+protected
+```
+
+- 만약 javaScript일 경우
+
+```js
+public  // 마음대로 접근 가능 (공개적)
+# // 클래스 내부에서만 접근 가능 (비공개적, private)
+```
+
+```js
+class Animal {
+  eye; // public을 따로 적어주면 안되는듯
+  #nose; // 붙여서 사용
+  // let이나 const를 사용하지 않으면 속성이 됨
+  // 생략하면 public, #은 기재해야만 private처럼 됨
+
+  constructor(eye, nose) {
+    this.eye = eye;
+    this.#nose = nose;
+  }
+}
+
+class Dog extends Animal {
+  constructor() {
+    super(2, 5);
+  }
+}
+
+const a = new Dog();
+console.log(a);
+console.log(a.eye);
+console.log(a.nose); // private error
+```
+
+## 12.6. static
+
+- 클래스에 고정된 속성, 메소드
+- 클래스 내에서 prototype의 역할을 함
+
+```js
+class MathCalc {
+  constructor() {}
+  static add(a, b) {}
+  static minus(a, b) {}
+}
+
+// new를 사용하면 error
+// static 변수나 메소드일 경우 .으로 접근해도 충분함
+MathCalc.add(3, 4);
+MathCalc.minus(3, 4);
+
+const a = new MathCalc();
+// 생성된 객체로 접근 불가
+a.add(3, 4);
+a.minus(3, 4);
+```
+
+## 13. callback(콜백) 함수
+
+- `call` 은 함수를 실행(호출)한다는 의미
+- 일반 함수에 매개변수로 전달된 함수를 말함.
+
+### 13.1. 콜백 함수 활용처
+
+- 주로 사용자 행동에 따른 `이벤트 발생` 시 실행함.
+- 서버 연동하여 자료를 호출하는 `이벤트 발생` 시 실행함.
+
+```js
+const say = funtion() {};
+const cry = () => {};
+
+function run(a) {
+  a();
+}
+
+run(say);
+run(cry);
+// 아래 추천
+run(function(){})
+```
+
+```js
+const bt = document.querySelector(".bt");
+bt.addEventListener("click", function () {});
+```
