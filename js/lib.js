@@ -1,18 +1,11 @@
-class Student {
-  constructor(_name, _age) {
-    this.name = _name;
-    this.age = _age;
-  }
-  sayName() {
-    console.log(this.name);
-  }
-
-  // class의 화살표는 객체로 인정
-  sayAge = () => {
-    console.log(this.age);
+return new Promise(function (resolve, reject) {
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", `https://jsonplaceholder.typicode.com/${api}`);
+  xhr.send();
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+    } else if (xhr.status === 404) {
+    } else if (xhr.status === 505) {
+    }
   };
-  sayHi() {
-    console.log(this.name + "!");
-  }
-}
-const student_1 = new Student("홍길동", 20);
+});

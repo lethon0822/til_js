@@ -33,24 +33,24 @@
 
 - `F12` 실행 > `Console` 탭 선택 (확인, 테스트 용도)
 
-```js
+```javascript
 console.log("안녕");
 // 내용 출력 확인
 ```
 
-```js
+```javascript
 console.clear();
 // 콘솔 창 초기화
 ```
 
-```js
+```javascript
 alert("안녕");
 // 경고 창으로 나타남
 ```
 
 - 1 줄 이상 작성하는 경우는 `Shift + Enter` 키를 입력하여야 함.
 
-```js
+```javascript
 console.log("안녕하세요.");
 console.log("좋은 금요일입니다");
 ```
@@ -104,7 +104,7 @@ console.log("좋은 금요일입니다");
 - js 폴더에 `lib.js` 파일 생성.
 - `js/lib.js 내용`
 
-```js
+```javascript
 // 메시지 출력 기능
 function say(_msg) {
   console.log(_msg);
@@ -156,7 +156,7 @@ ex) 이름 : 글자 20자 제한
 
 - 웹 브라우저 메모리 `빈 공간` 요청. (키워드 사용)
 
-```js
+```javascript
 var
 let
 const
@@ -190,7 +190,7 @@ const
 
 - 값이 사용자마다 변함 > `let` 선택.
 
-```js
+```javascript
 ex) let 이름 : 글자 20자 제한
     let 주민등록번호 : 글자 13자 제한
     let 전화번호 : 글자 11자 제한
@@ -238,7 +238,7 @@ ex) let 이름 : 글자 20자 제한
 
 #### 1.3.6 적용하기(카멜 케이스)
 
-```js
+```javascript
 ex) let userName : 글자 20자 제한
     let userNum : 글자 13자 제한
     let userPhone : 글자 11자 제한
@@ -264,7 +264,7 @@ ex) let userName : 글자 20자 제한
 - 일반 JS에서는 변수 타입을 적지 않음. (변수 타입을 적는 건 TS)
 - 글자수 제한은 if문, for문 등 코딩해서 확인할 수 있게 해야 함.
 
-```js
+```javascript
 ex) let userName = ""; //20자 제한
     let userNum = "";   //13자 제한
     let userPhone = "";   //11자 제한
@@ -287,17 +287,17 @@ ex) let userName = ""; //20자 제한
 - const로 했다가 값이 변해야 하는 경우에 let으로 변경. (변수)
 - const의 특징
   - 만들기 전에 사용할 수 없음. (호이스팅 : 안 만든 것을 사용할 수 없게. 해결해야 함.)
-  ```js
+  ```javascript
   console.log(userName); // Error
   const userName = "홍길동";
   ```
   - 동일한 이름으로 변수를 또 생성할 수 없음. (변수 생성 중복 방지)
-  ```js
+  ```javascript
   const userAge = 10;
   const userAge = 40; // Error
   ```
   - 값을 변경할 수 없음.
-  ```js
+  ```javascript
   const userCity = "대구";
   userCity = "서울"; // Error
   ```
@@ -306,21 +306,21 @@ ex) let userName = ""; //20자 제한
 
 - 만들기 전에 사용할 수 없음. (호이스팅 문제 해결! : const와 동일)
 
-```js
+```javascript
 console.log(userName);
 let userName = "홍길동"; // Error
 ```
 
 - 동일한 이름으로 중복 생성 할 수 없음. (중복 에러 생성 : const와 동일)
 
-```js
+```javascript
 let userAge = 20;
 let userAge = 30; // Error
 ```
 
 - 값을 변경할 수 있음. (const와의 유일한 차이점)
 
-```js
+```javascript
 let userCity = "대구";
 let userCity = "서울"; // OK
 ```
@@ -341,7 +341,7 @@ Ex)
   - (=) 하나의 배너는 변수 3개씩 가지고 있다.
 - 총 5개의 배너가 있다.
 
-```js
+```javascript
 // 첫 번째 배너
 const bannerUrl_1 = "https://~";
 const bannerImg_1 = "https://~";
@@ -362,7 +362,7 @@ const bannerId_2 = 2;
 
 - 관련 있는 기본형 데이터들을 `묶어서 하나로` 만들기
 
-```js
+```javascript
 // 1단계
 const 객체명 = {};
 //   ↓↓↓
@@ -386,7 +386,7 @@ const 객체명 = {};
   }
 ```
 
-```js
+```javascript
 // 첫 번째 배너
 const bannerUrl_1 = "https://~";
 const bannerImg_1 = "https://~";
@@ -424,7 +424,7 @@ banner_1.url;
 
 - 하나의 이름으로 여러개의 데이터를 묶어서 관리
 
-```js
+```javascript
 const bannerArray = [1, 2, 3, "안녕", false, null, undefined];
 const bannerId = ["1", "2", "3"];
 
@@ -437,7 +437,7 @@ const banner = [
 
 - 배열의 요소에 값 사용. (호출)
 
-```js
+```javascript
 배열명[인덱스번호];
 banner[0];
 banner[1];
@@ -447,7 +447,7 @@ banner[1];
 
 - 인터파크 티켓 랭킹 작업
 
-```js
+```javascript
 // 섹션의 타이틀
 const sectionTitle = "티켓 랭킹";
 // 섹션의 설명글
@@ -567,13 +567,13 @@ console.log(ticketInfoJSONArr[2].title);
 
 - `+ 연산자`
 
-```js
+```javascript
 const numA = 0;
 const numB = 1;
 const result = numA + numB; // result = 1;
 ```
 
-```js
+```javascript
 const strA = "안녕";
 const strB = "hello";
 const result = strA + strB; // result = "안녕hello";
@@ -600,7 +600,7 @@ const resultTemplate = `저기~ ${strC} 님은 나이가 ${numA}이군요!`;
 </div>
 ```
 
-```js
+```javascript
 const link = "https~";
 const img = "https~";
 const title = "뮤지컬 팬텀";
@@ -625,7 +625,7 @@ const tag = `
 // 엔터로 나눠진 문자열을 백틱으로 가져올 수 있고, ${} 를 알면 문자열 속에 변수의 내용을 가져올 수 있음
 ```
 
-```js
+```javascript
 const numA = 5;
 const numB = 8;
 const resultA = `${numA} + ${numB} = ${numA + numB}`;
@@ -634,7 +634,7 @@ const resultC = `${numA} * ${numB} = ${numA * numB}`;
 const resultD = `${numA} / ${numB} = ${numA / numB}`;
 ```
 
-```js
+```javascript
 const a = 1; // number
 const b = "1"; // string
 const result = a + b;
@@ -644,20 +644,20 @@ const result = a + b;
 
 - `- 연산자`
 
-```js
+```javascript
 const numA = 100;
 const numB = 10;
 const result = numA - numB; // 90
 ```
 
-```js
+```javascript
 const numA = "100"; // string
 const numB = 10; // number
 // string을 number로 암묵적 변환
 const result = numA - numB; // 90
 ```
 
-```js
+```javascript
 const numA = "ABC";
 const numB = 10;
 // ABC는 숫자가 아니므로 암묵적 변환 실패
@@ -666,7 +666,7 @@ const result = numA - numB; // NaN (Not a Number)
 
 - `* / 연산자`
 
-```js
+```javascript
 const numA = 4;
 const numB = 2;
 const resultMulti = numA * numB; // 8
@@ -680,7 +680,7 @@ const resultDevide = numA / numB; // 2
 - 몇 페이지가 필요한가?
 - 마지막 페이지에 보여줘야 하는 게시글 수는?
 
-```js
+```javascript
 const total = 52;
 const count = 5;
 const totalPage = total / 5; // 소숫점 나옴
@@ -690,7 +690,7 @@ const LastCount = total % count; // 나머지 나옴
 
 ### 2.3. 복합 연산자 (연산 타이핑 수를 줄임.)
 
-```js
+```javascript
 const numA = 5;
 const result = numA+3; // 8
 // 코딩에 의한 가독성이 떨어짐.
@@ -721,7 +721,7 @@ num--;
 - `무조건 이해` 해야 함.
 - `falsy` 한 값의 종류 (js 에서 false 라고 판단하는 값)
 
-```js
+```javascript
 "";
 0;
 undefined;
@@ -737,7 +737,7 @@ false;
 - 2개 중 1개만 true면 true
 - 둘 다 false일 때만 false
 
-```js
+```javascript
 let result = true || false; // false
 result = false || false; // false
 result = "" || true; // true
@@ -753,7 +753,7 @@ result = userPass || "비밀번호 넣으세요."; // "비밀번호 넣으세요
 - 둘 다 true 일 때만 true
 - 둘 중 하나라도 false 일때 false
 
-```js
+```javascript
 let result = true && true; // true
 result = false && true; // false
 
@@ -762,51 +762,51 @@ result = false && true; // false
 
 #### 2.5.3. Not 연산자 (반대)
 
-```js
+```javascript
 let result = !true;
 result = !false;
 ```
 
 #### 2.5.4. 실습 예제
 
-```js
+```javascript
 let nickName = "";
 let displayName = nickName || "Guest";
 console.log(displayName); // "Guest"
 ```
 
-```js
+```javascript
 let title = null;
 let result = title || "제목 없음";
 console.log(result); // "제목 없음"
 ```
 
-```js
+```javascript
 let totalMoney = 0;
 let result = totalMoney || "장바구니가 비었습니다.";
 console.log(result); // "장바구니가 비었습니다."
 ```
 
-```js
+```javascript
 let isLogin = true;
 let result = isLogin && "환영합니다.";
 console.log(result); // "환영합니다."
 ```
 
-```js
+```javascript
 let isAdmin = false;
 let result = isAdmin && "관리자 메뉴 표시";
 console.log(result); // false
 ```
 
-```js
+```javascript
 let config = {};
 config.theme = config.theme || "light";
 console.log(config); // { theme : "light" }
 // 내용이 없을 때 초기값 셋팅
 ```
 
-```js
+```javascript
 let options = {
   lang: null,
   fontSize: 0,
@@ -818,7 +818,7 @@ let fontSize = options.fontSize || 20;
 
 ### 2.6. 비교 연산자
 
-```js
+```javascript
 // 같은가
 // 데이터값의 종류는 비교하지 않음
 let resultA = "1" == 1;
@@ -839,7 +839,7 @@ let resultH = 1 !== 2; // 다르냐 (데이터 타입까지)
 
 - 아래에서 기대한 코드는 0 값이 나오길 기대하고 코드를 진행함.
 
-```js
+```javascript
 let userPoint = 0;
 let displayPoint = userPoint || 500000; // falsy + or 연산자 = false
 console.log(displayPoint);
@@ -848,13 +848,13 @@ console.log(displayPoint);
 - `??` 연산자는 `null, undefined` 일 때만 값을 비교함.
 - 나머지는 `||` 연산자와 동일함.
 
-```js
+```javascript
 let userPoint = 0;
 let displayPoint = userPoint ?? 500000; // null, undefined 만 false
 console.log(displayPoint);
 ```
 
-```js
+```javascript
 let formInput = {
   name: "",
   email: null, // 개발자가 값이 없다고 지정하는 것
@@ -871,7 +871,7 @@ const name = formInput.phone ?? "전화 없음"; // "전화 없음"
 - 객체의 속성을 대상으로 함. ==> `{ 속성:값 }`
 - 객체의 `속성 존재 여부`에 따라 코드 진행.
 
-```js
+```javascript
 const user = {
   profile: null,
 };
@@ -881,7 +881,7 @@ const age = user.profile?.age ?? "정보가 없어 나이 정보를 몰라요"; 
 // `?`을 넣으면서 있으면 넣고 없으면 넣지 않게 설정됨.
 ```
 
-```js
+```javascript
 const user = {
   profile: { age: 10, name: "홍" },
 };
@@ -1655,11 +1655,11 @@ function showArr(arr) {
 ```js
 /**
  * 객체의 속성값을 출력하는 함수
- * @param { {id:number, nicName:string, age:number} } user - 사용자 객체
+ * @param { {id:number, nickName:string, age:number} } user - 사용자 객체
  */
 function showUser(user) {
   console.log(user.id);
-  console.log(user.nicName);
+  console.log(user.nickName);
   console.log(user.age);
 }
 ```
@@ -2743,3 +2743,551 @@ const 배열 = [1, 3, 5];
 ### 15.4. 데이터 종류 중 배열을 많이 다룸
 
 - 일반적 데이터 형태 : `[{}, {}, {}]`
+- 배열을 프로그래밍 시 많이 다루므로 `미리 함수를 제공`함. (빌트인 함수)
+- 주의사항 : 절대 원본을 훼손하지 않기. (불변성 유지)
+
+### 15.5. 배열을 다루는 함수에서 원본을 훼손하는 배열함수
+
+- `사용하면 안됨(원본을 고치면 안되기 때문 + 다른 이유)`
+- push() : 배열 `끝`에 추가
+
+```js
+const lunchArr = ["사과", "딸기", "과자", "햄버거"];
+lunchArr.push("커피");
+console.log(lunchArr);
+// 커피 추가 (원본 훼손)
+// [  "사과",  "딸기",  "과자",  "햄버거",  "커피"]
+```
+
+- pop() : `끝` 요소 제거 및 제거된 요소 반환
+
+```js
+const lunchArr = ["사과", "딸기", "과자", "햄버거"];
+lunchArr.pop();
+console.log(lunchArr);
+// 햄버거 제거 (원본 훼손)
+// [  "사과",  "딸기",  "과자"]
+```
+
+- unshift() : `앞` 요소 추가
+
+```js
+const lunchArr = ["사과", "딸기", "과자", "햄버거"];
+lunchArr.unshift("커피");
+console.log(lunchArr);
+// 햄버거 앞자리 추가 (원본 훼손)
+// ["커피", "사과",  "딸기",  "과자", "햄버거"]
+```
+
+- shift() : `앞 첫번째` 요소 제거
+
+```js
+const lunchArr = ["사과", "딸기", "과자", "햄버거"];
+lunchArr.shift();
+console.log(lunchArr);
+// 햄버거 앞자리 제거 (원본 훼손)
+// ["딸기",  "과자", "햄버거"]
+```
+
+- splice() : `원하는 인덱스` 부터 추가, 제거
+
+```js
+const lunchArr = ["사과", "딸기", "과자", "햄버거"];
+lunchArr.splice(1, 2);
+console.log(lunchArr);
+// 인덱스로 부터 개수만큼 제거 (원본 훼손)
+// ["사과", "햄버거"]
+```
+
+- sort() : 배열의 순서를 정렬하기
+
+```js
+const lunchArr = ["사과", "딸기", "과자", "햄버거"];
+lunchArr.sort();
+console.log(lunchArr);
+// ['과자', '딸기', '사과', '햄버거']
+const enArr = ["k", "o", "r", "e", "A", "j", "p", "a", "n"];
+
+// 원본훼손
+enArr.sort();
+console.log(enArr);
+// ['A', 'a', 'e', 'j', 'k', 'n', 'o', 'p', 'r']
+const numArr = [1, 2, 12, 25, 37, 30];
+// 원본훼손
+numArr.sort();
+console.log(numArr);
+// 단순히 sort() 를 사용하면 앞 글자를 기준으로 정렬됨.
+// [1, 12, 2, 25, 30, 37]
+
+// 내림 차순으로 정렬해 보자.
+// numArr.sort((a, b) => b - a);
+// [37, 30, 25, 12, 2, 1]
+
+// 올림 차순
+numArr.sort((a, b) => a - b);
+console.log(numArr);
+// [1, 2, 12, 25, 30, 37]
+```
+
+- reverse() : `역순` 순서를 뒤집어 저장
+
+```js
+const numArr = [1, 2, 12, 25, 37, 30];
+// 원본 훼손
+numArr.reverse();
+console.log(numArr);
+// [30, 37, 25, 12, 2, 1]
+```
+
+- fill() : 요소에 값을 채운다.
+
+```js
+const numArr = [1, 2, 12, 25, 37, 30];
+// 원본 훼손
+// numArr.fill(0);
+console.log(numArr);
+// [0, 0, 0, 0, 0, 0]
+// 값 1 을 채워라
+// 인덱스 3번으로 부터
+// 인덱스 5번 전까지
+numArr.fill(1, 3, 5);
+console.log(numArr);
+// [1, 2, 12, 1, 1, 30]
+```
+
+- flat() : `배열을 평탄화` 사용합니다.
+  : flat 을 위한 별도의 라이브러가 존재합니다.
+  : react 에서 모듈을 설치해서 사용합니다.
+
+```js
+const numArr = [1, 2, 3, ["a", "b", "c"], 8, 9];
+// flat(배열의 단계)
+const result = numArr.flat(1);
+console.log(result);
+// [1, 2, 3, 'a', 'b', 'c', 8, 9]
+const num2Arr = [1, 2, [3, [4, [5, 6]]], 100];
+const result2 = num2Arr.flat(1);
+console.log(result2);
+// [1, 2, 3, Array(2), 100]
+const result3 = result2.flat(1);
+console.log(result3);
+// [1, 2, 3, 4, Array(2), 100]
+const result4 = result3.flat(1);
+console.log(result4);
+// [1, 2, 3, 4, 5, 6, 100]
+```
+
+### 15.6. 배열을 다루는 함수에서 원본을 훼손하지 않고 `새로운 배열을 만들어 주는 함수`
+
+- `데이터 불변성(immutability)` 유지했는가?
+
+#### 15.6.1. map()
+
+- `★이 1000만개` 가치가 있고, 자주활용
+- 원본 배열의 요소에 동일한 함수 실행 후 새로운 배열로 생성
+
+```javascript
+const originArr = ["홍길동", "고길동", "김수한무"];
+// 쉼표를 기준으로 나눠 들어감.
+// 비어있는 경우 undefined
+const copyArr = originArr.map(function (item, index, arr) {
+  // console.log(`item : ${item}, index: ${index}`);
+  const tag = `<div class="user-info">${item}</div>`;
+  console.log(tag);
+  // 리턴해야 배열이 담김.
+  return tag;
+});
+
+console.log(`원본 originArr : ${originArr}`);
+console.log(`복제본 copyArr : ${copyArr}`);
+
+const copyArrowArr = originArr.map((item, index) => {
+  return `<a href="${index}">${item}</a>`;
+});
+
+console.log(`복제본 copyArrowArr : ${copyArrowArr}`);
+```
+
+#### 15.6.2. filter()
+
+- `조건에 참`인 것만 모아서 배열 리턴
+- 자주 사용은 합니다.
+
+```javascript
+const memberHong = {
+  age: 10,
+  name: "홍길동",
+  role: "GUEST",
+};
+const memberKim = {
+  age: 18,
+  name: "김수한무",
+  role: "MEMBER",
+};
+const memberPark = {
+  age: 25,
+  name: "박둘리",
+  role: "ADMIN",
+};
+
+const originArr = [memberHong, memberKim, memberPark];
+
+const result = originArr.filter((item, index) => {
+  // return item.role === "ADMIN";
+  return item.age <= 20;
+  // 배열을 return
+});
+console.log(result);
+```
+
+#### 15.6.3. slice()
+
+- 배열의 일부를 복사한다.
+
+```javascript
+const numArr = [1, "a", "b", 4];
+// 시작 인덱스로 부터 도착 인덱스 미만 요소 출력
+const nowArr = numArr.slice(1, 3);
+console.log(numArr);
+console.log(nowArr); //  ['a', 'b']
+```
+
+#### 15.6.4. concat();
+
+- 배열을 `합쳐서` 하나의 배열을 리턴.
+
+```javascript
+const numArr1 = [1, "a", "b", 4];
+const numArr2 = [8, 100];
+const result = numArr1.concat(numArr2);
+console.log(result);
+// [1, 'a', 'b', 4, 8, 100]
+```
+
+#### 15.6.5. reduce();
+
+- 배열의 요소를 탐색하면서 누적 연산함.
+- 누적된 결과를 출력함.
+
+```javascript
+const numArr1 = [1, 2, 3, 4];
+// 문법이 좀 다릅니다.
+// 보통은 ===>  (item, index, arr)
+// const total = numArr1.reduce(함수, 초기값)
+const total = numArr1.reduce((acc, cur) => {
+  console.log("acc : ", acc);
+  console.log("cur : ", cur);
+  return acc + cur;
+}, 0);
+
+console.log("total : ", total);
+```
+
+#### 15.6.6. join();
+
+- 문자열로 배열을 연결한 결과를 만듦.
+- 많이 사용될 것으로 예상.
+
+```javascript
+const numArr1 = [1, 2, 3, 4];
+// 기본은 ,  연결된 글자
+const result = numArr1.join("#");
+// 결과는 string
+console.log(`typeof ${typeof result} , ${result}`);
+// typeof string , 1#2#3#4
+```
+
+#### 15.6.7. indexOf();
+
+- 찾는 요소가 몇번째 인덱스 인지를 파악
+
+```javascript
+const numArr1 = [1, 2, 3, 4];
+const result = numArr1.indexOf(3);
+console.log(`typeof ${typeof result} , ${result}`);
+// typeof number , 인덱스 2
+```
+
+#### 15.6.8. includes();
+
+- 요소가 포함되었는지 아닌지
+
+```javascript
+const numArr1 = [1, 2, 3, 4];
+// 기본은 ,  연결된 글자
+const result = numArr1.includes(3);
+console.log(`typeof ${typeof result} , ${result}`);
+// typeof boolean , true
+```
+
+## 16. 객체(`{}`)와 배열(`[]`)의 필수 이해 사항
+
+### 16.1. 반복문
+
+- 배열에서 사용하는 경우의 반복문 문법
+
+```javascript
+const arr = [1, 2, 3, 4];
+
+// 가장 전통적인 방식
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
+
+// 배열의 요소 반복문 버전
+arr.forEach(function (item) {
+  console.log(item);
+});
+
+// 배열의 for of 문
+for (const item of arr) {
+  console.log(item);
+}
+
+// 배열의 map :  새로운 배열을 만듦
+const now = arr.map(function (item) {
+  return item;
+});
+```
+
+- 객체에서 사용하는 경우의 반복문 문법
+
+```javascript
+const person = {
+  age: 10,
+  nickName: "hong",
+  isMember: false,
+};
+
+// 객체의 속성명 알아내기
+for (let key in person) {
+  console.log(key);
+  // age, nickName, isMember
+}
+
+// 객체의 속성에 보관하는 값 알아내기
+for (let key in person) {
+  console.log(person[key]);
+  // 10, hong, false
+}
+```
+
+### 16.2. 값을 추출해서 보관하기
+
+- 배열의 경우
+
+```javascript
+const arr = ["사과", "딸기", "참외"];
+
+// 아래처럼 요소 값을 알아내는 것을 권장하지 않음(비추천)
+arr[0];
+arr[1];
+arr[2];
+
+// 반복문으로 알아내기
+for (let i = 0; i < arr.length; i++) {
+  arr[i];
+}
+```
+
+- `배열 Spread` 문법 : `★ x 5000만개`
+  - 배열의 요소를 알아내기
+  - 배열의 요소를 복사하기
+  - 새로운 배열에 담아주기
+
+```javascript
+const arr = ["사과", "딸기", "참외"];
+
+// 아래처럼 하지 않기
+const apple = arr[0];
+const straw = arr[1];
+const melon = arr[2];
+
+// 배열 Spread 문법 적용
+const [apple, straq, melon] = [...arr];
+
+// 두 배열을 Spread 문법으로 합치기
+const numArr = [1, 2, 3];
+const strArr = ["a", "b", "c"];
+
+// 원본을 수정하므로 map으로 복사한 후 이용하는 것이 좋음
+const reStrArr = strArr.reverse()
+
+// [1, "a", "b", "c", 2, 3];
+// 아래처럼 하지 않기 권장
+const sampleArr = [1, strArr[0], strArr[1], strArr[2], 2, 3];
+
+// Spread 문법 활용
+const resultArr = [1, ...strArr, 2, 3]
+
+// rest 파라미터 문법과 구분하기
+function showArr(...rest) []
+```
+
+- 객체 : `별이 5000만개`
+
+```js
+const person = {
+  age: 10,
+  nickName: "hong",
+  isMember: false,
+};
+
+// 아래처럼 하지 않는 걸 권장
+const newPerson = {
+  age: person.age,
+  nickName: person.nickName,
+  isMember: person.isMember,
+};
+
+// 객체 Spread 문법
+const nowPerson = { ...person };
+
+// 두개의 객체 를 합치기
+const a = { age: 10, name: "hong" };
+const b = { city: "대구", year: 2025 };
+const result = { ...a, ...b };
+// 결과 {age: 10, name: "hong", city: "대구", year: 2025 }
+
+// 원본 객체 복사하고 새로운 속성 추가하기
+const ori = { a: 1, b: "안녕" };
+const now = { ...ori, gogo: "happy" };
+// now {a:1, b:"안녕", gogo:"happy" }
+
+// 함수에 매개변수로 객체를 복사해서 전달하기
+function show({ name, age }) {
+  console.log(name);
+  console.log(age);
+}
+
+const user = { name: "아이유", age: 20 };
+show({ ...user });
+```
+
+## 17. 비동기(Asyncronous) 통신
+
+- `비동기`는 시간이 오래 걸리는 작업
+- 예) 데이터 서버에서 자료를 요청(Request) 및 응답(Response)
+- 예) 데이터 서버에서 파일 전송 시
+- 비동기 작업 중 결과를 기다리지 않고 다른 작업을 병렬로 실행하도록 함.
+
+### 17.1. 비동기 작업 문법 종류
+
+- XHR (Xml Http Request)
+- Callback
+- Promise
+- async/await
+
+### 17.2. 데모용 API 사이트
+
+- https://jsonplaceholder.typicode.com/
+- https://www.data.go.kr/index.jsp
+
+### 17.3. XHR
+
+- 서버와 통신하는 작업을 위해서 기본적으로 제공됨.
+- `Request` : url로 자료를 요청하기
+- `Response` : url로부터 자료를 돌려받기
+- status 200 류의 값 : 정상적으로 자료를 응답함.
+- status 400 류의 값 : url이 존재하지 않음
+- status 500 류의 값 : 데이터 서버가 오류나거나 전원이 꺼짐.
+
+- https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Status
+
+```javascript
+// 데이터 서버에 자료를 호출함.
+function getData() {
+  // 1. xhr 객체 한개 만듦
+  const xhr = new XMLHttpRequest();
+
+  // 2. 주소를 연결함
+  // 백엔드 호출시 메소드 5가지 (RestAPI 라고 함)
+  // GET   : 자료를 요청.
+  // POST  : 자료를 추가.
+  // DELETE : 자료를 삭제.
+  // PUT   :  자료 전체를 수정.
+  // PATCH :  자료 내용에서 일부분만 수정.
+  xhr.open("GET", "https://jsonplaceholder.typicode.com/photos");
+
+  // 3. 웹 브라우저로 요청
+  xhr.send();
+
+  // 4. 요청 이후 응답이 오기를 기다림.
+  xhr.onload = function () {
+    console.log("요청이 되어졌을 때 백엔드 회신정보 : ", xhr);
+
+    if (xhr.status === 200) {
+      console.log("정상적인 Response 됨");
+    } else if (xhr.status === 404) {
+      console.log("주소가 잘못되었네요.");
+    } else if (xhr.status === 505) {
+      console.log("서버에 오류입니다. 잠시 후 시도해 주세요.");
+    }
+  };
+}
+```
+
+### 17.4. Callback 활용
+
+- 자료 응답 후 처리하기
+
+```javascript
+// 콜백 함수 만들기 : 자료가 들어오면 처리함.
+const postsParser = function (res) {
+  console.log(res);
+};
+const commentsParser = function (res) {};
+const albumsParser = function (res) {};
+const photosParser = function (res) {};
+const todosParser = function (res) {};
+const usersParser = function (res) {};
+
+// 함수 사용
+getData(); // 초기화값 설정 안 돼있으면 undefined라 오류 발생률 높음
+getData("posts", postsParser);
+getData("comments", commentsParser);
+getData("albums", albumsParser);
+getData("photos", photosParser);
+getData("todos", todosParser);
+getData("users", usersParser);
+```
+
+### 17.5. Promise 활용
+
+- 서버 연동이 끝날 때 원하는 콜백 함수 실행
+- 2개의 매개변수를 전달 받음
+- `resolve` 콜백 함수 : 성공 시 실행하는 함수
+- `reject` 콜백 함수 : 실패 시 실행하는 함수
+
+```javascript
+// 데이터 서버에 자료를 호출함.
+
+function getData(api = "posts") {
+  return new Promise(function (resolve, reject) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", `https://jsonplaceholder.typicode.com/${api}`);
+    xhr.send();
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        // 성공
+        resolve(xhr.response);
+      } else if (xhr.status === 404) {
+        // 실패
+        reject();
+      } else if (xhr.status === 505) {
+        console.log("서버가 불안정합니다. 잠시 후 재접속해주세요.");
+      }
+    };
+  });
+}
+// 함수 사용 (then = 성공 시, catch = 실패 시)
+getData("posts")
+  .then( function(){} ))
+  .catch( function(){} );
+getData("comments").then().catch();
+getData("albums").then().catch();
+getData("photos").then().catch();
+getData("todos").then().catch();
+getData("users").then().catch();
+
+```
