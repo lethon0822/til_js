@@ -3273,7 +3273,7 @@ function getData(api = "posts") {
         resolve(xhr.response);
       } else if (xhr.status === 404) {
         // 실패
-        reject();
+        reject("데이터 없음");
       } else if (xhr.status === 505) {
         console.log("서버가 불안정합니다. 잠시 후 재접속해주세요.");
       }
@@ -3290,4 +3290,63 @@ getData("photos").then().catch();
 getData("todos").then().catch();
 getData("users").then().catch();
 
+```
+
+### 17.6. async / await
+
+- 강력 추천
+- Promise를 편하게 쓰기 위해 제공된 최신 문법
+- `function 키워드 앞쪽에 async` 작성
+- `BE 연동 쪽에 await` 작성
+
+- 단계 1
+
+```javascript
+async function getAllData() {
+  try {
+  } catch (error) {}
+}
+
+getAllData();
+```
+
+- 단계 2
+
+```javascript
+async function getAllData() {
+  try {
+    // BE 데이터 연동 시도 (주소 입력)
+    let res = await fetch(`${apiUrl}/posts`);
+    let data = await res.data.json();
+    console.log(data);
+
+    res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    data = await res.json();
+    console.log(data);
+
+    res = await fetch("https://jsonplaceholder.typicode.com/comments");
+    data = await res.json();
+    console.log(data);
+
+    res = await fetch("https://jsonplaceholder.typicode.com/albums");
+    data = await res.json();
+    console.log(data);
+
+    res = await fetch("https://jsonplaceholder.typicode.com/photos");
+    data = await res.json();
+    console.log(data);
+
+    res = await fetch("https://jsonplaceholder.typicode.com/todos");
+    data = await res.json();
+    console.log(data);
+
+    res = await fetch("https://jsonplaceholder.typicode.com/users");
+    data = await res.json();
+    console.log(data);
+  } catch (error) {
+    console.log("Error : " + error);
+  }
+}
+
+getAllData();
 ```
